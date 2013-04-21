@@ -1,15 +1,23 @@
-<?php include_once 'header.php'; ?>
+<?php
 
-<form method="post" action="../actions/main_action.php">
+include_once 'header.php';
+$group_id = $_SESSION['colony_id'];
+$groupDAO = GenericDAO::getInstanceForTable("Group");
+$group = $groupDAO->retrieve($group_id);
+
+?>
+
+<form method="post" action="../actions/skills_repartition_action.php">
     <fieldset>
-        <legend>Beginning</legend>
+        <legend>Skills Repartition</legend>
         <table>
             <tr>
                 <td>
                     <label for="colony_name">Colony Name</label>:
                 </td>
                 <td>
-                    <input id="colony_name" name="colony_name" type="text"/>
+                    <input id="colony_name" name="colony_name" type="text"
+                           value="<?php echo $group->name ?>"/>
                 </td>
             </tr>
             <tr>
