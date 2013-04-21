@@ -4,9 +4,8 @@ class GenericDAO
 {
     private $db;
     private $tableName;
-    private static $_instance;
     
-    private function __construct($tableName) {
+    function __construct($tableName) {
         try {
             $this->db = new PDO('mysql:host=localhost;dbname=offthegrid', "root", "");
             //$this->dbh = null;
@@ -15,13 +14,6 @@ class GenericDAO
             die();
         }
         $this->tableName = $tableName;
-    }
-    
-    static function getInstanceForTable($tableName) {
-        if (!(self::$_instance instanceof self))
-            self::$_instance = new self($tableName);
-        
-        return self::$_instance;
     }
 
     function create($obj) {
@@ -93,6 +85,27 @@ class GenericDAO
                 
         if ($this->db->exec($query) != 1)
             throw new Exception ("More or less than 1 row have been inserted! Query: ".$query);
+    }
+
+    function findAll() {
+        $result = array();
+        
+        $query = "SELECT * FROM offthegrid.".$this->tableName;
+        
+        try {
+            foreach ($this->db->query($query) as $row) {
+                $obj = new $this->tableName;
+                foreach ($obj as $key => $value) {
+                    $obj->$key = $row[$key];
+                }
+                $result[] = $obj;
+            }
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+        
+        return $result;
     }
 }
 
