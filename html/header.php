@@ -16,6 +16,6 @@ include_once '../classes/Skill.php';
     </header>
     <body>
         <hr/>
-        <h1>Off The Grid</h1>
+        <img src="../img/header.jpg"/>
         <hr/>
 
