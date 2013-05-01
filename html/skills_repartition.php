@@ -62,15 +62,26 @@ $persons = $personDAO->findByGroupId($group_id);
 </form>
 
 <script>
-function move(sourceSel, targetSel) {
-
-  var i;
-  i = sourceSel.options.length;
-  while (i--) {
-    if (sourceSel.options[i].selected) {
-      targetSel.appendChild(sourceSel.options[i]);
+function move(src, dest) { // From http://viralpatel.net/blogs/listbox-select-all-move-left-right-up-down-javascript/
+    for(var count=0; count < src.options.length; count++) {
+ 
+        if(src.options[count].selected == true) {
+                var option = src.options[count];
+ 
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                         dest.add(newOption, null); //Standard
+                         src.remove(count, null);
+                 }catch(error) {
+                         dest.add(newOption); // IE only
+                         src.remove(count);
+                 }
+                count--;
+        }
     }
-  }
 }
 </script>
 
