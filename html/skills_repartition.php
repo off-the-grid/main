@@ -31,7 +31,7 @@ $persons = $personDAO->findByGroupId($group_id);
             <?php foreach ($skills as $skill) { ?>
             <tr>
                 <td>
-                    <label for="<?php echo strtolower($skill->name); ?>"><?php echo $skill->name; ?></label> (<?php echo $skill->cost; ?>):
+                    <label for="<?php echo strtolower($skill->name); ?>"><?php echo $skill->name; ?></label><!-- (<?php echo $skill->cost; ?>)-->:
                 </td>
                 <td>
                     <select id="<?php echo strtolower($skill->name); ?>" name="<?php echo strtolower($skill->id); ?>">
@@ -41,14 +41,14 @@ $persons = $personDAO->findByGroupId($group_id);
                 </td>
                 <td>
                 </td>
-                <?php if ($i++ == 0) { ?>
-                <td rowspan="2">
+                <?php if ($i++ == 0) /* Means that the following block will be displayed only once */ { ?>
+                <td rowspan="<?php echo count($skills); ?>">
                     People:
                     <br/>
                     <select id="people" name="people" multiple="multiple" size="3">
                         <?php foreach ($persons as $person) { ?>
-                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?> (<?php echo $person->score; ?>)</option>
-                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?> (<?php echo $person->score; ?>)</option>
+                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?> (primary skill)</option>
+                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?> (secondary skill)</option>
                         <?php } ?>
                     </select>
                 </td>
