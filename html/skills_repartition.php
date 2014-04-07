@@ -47,8 +47,7 @@ $persons = $personDAO->findByGroupId($group_id);
                     <br/>
                     <select id="people" name="people" multiple="multiple" size="3">
                         <?php foreach ($persons as $person) { ?>
-                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?> (primary skill)</option>
-                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?> (secondary skill)</option>
+                        <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?></option>
                         <?php } ?>
                     </select>
                 </td>
