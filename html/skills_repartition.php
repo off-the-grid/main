@@ -45,7 +45,7 @@ $persons = $personDAO->findByGroupId($group_id);
                 <td rowspan="<?php echo count($skills); ?>">
                     People:
                     <br/>
-                    <select id="people" name="people" multiple="multiple" size="3">
+                    <select id="people" name="people" multiple="multiple" size="3" class="people-box">
                         <?php foreach ($persons as $person) { ?>
                         <option name="<?php echo $person->id; ?>">Person <?php echo $person->number; ?></option>
                         <?php } ?>

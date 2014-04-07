@@ -6,3 +6,9 @@ body {
 #generator {
     float: right;
 }
+
+.people-box {
+    display: inline-block;
+    height: 50px;
+    width: 100px;
+}
