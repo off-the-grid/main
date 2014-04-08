@@ -2,7 +2,8 @@
 
 class Skill
 {
-	public $name;
+	public $id;
+    public $name;
     public $cost;
 }
 
