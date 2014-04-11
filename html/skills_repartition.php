@@ -56,7 +56,7 @@ $persons = $personDAO->findByGroupId($group_id);
             <?php } ?>
         </table>
         
-        <input id="generator" type="submit" value="Run Simulation"/>
+        <input id="generator" type="submit" value="Continue"/>
     </fieldset>
 </form>
 
