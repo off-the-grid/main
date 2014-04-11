@@ -34,7 +34,7 @@ $persons = $personDAO->findByGroupId($group_id);
                     <label for="<?php echo strtolower($skill->name); ?>"><?php echo $skill->name; ?></label><!-- (<?php echo $skill->cost; ?>)-->:
                 </td>
                 <td>
-                    <select id="<?php echo strtolower($skill->name); ?>" name="<?php echo strtolower($skill->id); ?>">
+                    <select id="<?php echo strtolower($skill->name); ?>" name="skill_<?php echo $skill->id; ?>[]" multiple="multiple" class="skill-box">
                     </select>
                     <a href="javascript:move(document.getElementById('people'), document.getElementById('<?php echo strtolower($skill->name); ?>'))">&lt;</a>
                     <a href="javascript:move(document.getElementById('<?php echo strtolower($skill->name); ?>'), document.getElementById('people'))">&gt;</a>
