@@ -1,4 +1,4 @@
 main
 ====
 
-http://spaceappschallenge.org/project/parisoffthegrid/
+http://2013.spaceappschallenge.org/project/parisoffthegrid/
