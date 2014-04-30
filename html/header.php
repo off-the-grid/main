@@ -12,6 +12,9 @@ include_once '../classes/Skill.php';
 
 <html>
     <header>
+        <!-- Bootstrap core CSS -->
+        <!--<link rel="stylesheet" href="../vendor/bootstrap-3.1.0/css/bootstrap.min.css">-->
+        
         <link rel="stylesheet" href="../main.css"/>
     </header>
     <body>
